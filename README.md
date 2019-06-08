@@ -6,14 +6,13 @@
   
   
   ## Check Label
-    ```bash
+    
     node ./check_label.js $(card_link)
-    ```
+    
   ## Show Card Url Based On Label
-    ```bash
+    
     node ./show_card_url.js $(label_name)
-    ```
+    
   ## Write Description
-    ```bash
+    
     node ./write_description.js $(card_link) $(description)
-    ```
