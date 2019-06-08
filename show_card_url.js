@@ -5,7 +5,7 @@ const trello = new Trello(
   "", //first argument: application key 
   "" //second arguemtn: user token
 ); 
-const memberId = "5cfb40e35fe0ea0e4422ed9c"; //argument: id of member of the board
+const memberId = ""; //argument: id of member of the board
 
 trello.getBoards(memberId, (error, board) => {
   if (error) {
