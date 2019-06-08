@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "trello": "^0.9.1"
+  }
+}

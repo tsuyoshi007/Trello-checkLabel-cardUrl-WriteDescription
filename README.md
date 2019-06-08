@@ -4,15 +4,42 @@
   
 ![alt getkey](https://camo.githubusercontent.com/2cb1ee4b31f987402a4372706be5ee9e0fcdcee9/68747470733a2f2f692e696d6775722e636f6d2f4d353972314a752e706e67)
   
-  
-  ## Check Label
+* * *
+
+## Check Label
     
-    node ./check_label.js $(card_link)
+  node ./check_label.js ${board_id} ${card_id}
+
+* * *
+
+## Show Card Url Based On Label
     
-  ## Show Card Url Based On Label
+  node ./show_card_url.js ${label_name}
+
+* * *
+
+## Write Description
     
-    node ./show_card_url.js $(label_name)
-    
-  ## Write Description
-    
-    node ./write_description.js $(card_link) $(description)
+  node ./write_description.js ${card_link} ${description}
+
+* * *
+
+## Coding Style
+
+```bash
+semistandard --fix
+```
+
+* * *
+
+## [.commit_template](.commit_template)
+
+```bash
+git config commit.template .commit_template
+```
+
+by <https://github.com/carloscuesta/gitmoji-cli>
+
+```bash
+gitmoji -l
+```
