@@ -2,5 +2,15 @@
   "dependencies": {
     "dotenv": "^8.0.0",
     "trello": "^0.9.1"
+  },
+  "devDependencies": {
+    "documentation": "^11.0.0",
+    "semistandard": "^13.0.1"
+  },
+  "scripts": {
+    "semistandard": "semistandard ./src",
+    "semistandard:fix": "semistandard --fix ./src",
+    "documentation:build": "documentation build -f html ./src -o ./doc/",
+    "documentation:add-text-to-markdown": "documentation build -f md ./src | add-text-to-markdown ./README.md --section 'DocumentationJS' --write"
   }
 }
