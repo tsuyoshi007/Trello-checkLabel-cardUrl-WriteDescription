@@ -2,9 +2,9 @@ const Trello = require("trello");
 const args = process.argv[2];
 
 const trello = new Trello(
-  "", //first argument: application key 
+  "", //first argument: application key
   "" //second arguemtn: user token
-); 
+);
 const memberId = ""; //argument: id of member of the board
 
 trello.getBoards(memberId, (error, board) => {
@@ -23,10 +23,10 @@ trello.getBoards(memberId, (error, board) => {
             }
           });
         });
-        if(!resUrl.length) {
-            console.log("We can't find the card with the specified label!!!");
-        }else {
-            console.log(resUrl);
+        if (!resUrl.length) {
+          console.log("We can't find the card with the specified label!!!");
+        } else {
+          console.log(resUrl);
         }
       }
     });
