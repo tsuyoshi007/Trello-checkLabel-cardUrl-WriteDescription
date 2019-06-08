@@ -1,32 +1,33 @@
 const Trello = require("trello");
 const args = process.argv[2];
 
-const trello = new Trello("", ""); //first argument: application key //second arguemtn: user token
-const memberId = ""; //argument: id of member of the board
+const trello = new Trello(
+  "", //first argument: application key 
+  "" //second arguemtn: user token
+); 
+const memberId = "5cfb40e35fe0ea0e4422ed9c"; //argument: id of member of the board
 
-trello.getBoards(memberId, function(error, board) {
+trello.getBoards(memberId, (error, board) => {
   if (error) {
     console.log(error);
   } else {
-    trello.getListsOnBoard(board[0].id, function(error, list) { //you can specify a specific board here by changing the index of board !!!
+    trello.getCardsOnBoard(board[0].id, (error, cards) => {//you can specify a specific board here !!!
       if (error) {
         console.log(error);
       } else {
-        trello.getCardsOnList(list[0].id, function(error, card) { //you can specify a specific list here by change the index of list
-          if (error) {
-            console.log(error);
-          } else {
-            let resUrl = [];
-            card.forEach(element1 => {
-              element1.labels.forEach(element2 => {
-                if (element2.name == args) {
-                  resUrl.push(element1.shortUrl);
-                }
-              });
-            });
-            console.log(resUrl); //result will be return here
-          }
+        let resUrl = [];
+        cards.forEach(card => {
+          card.labels.forEach(label => {
+            if (label.name == args) {
+              resUrl.push(card.shortUrl);
+            }
+          });
         });
+        if(!resUrl.length) {
+            console.log("We can't find the card with the specified label!!!");
+        }else {
+            console.log(resUrl);
+        }
       }
     });
   }
