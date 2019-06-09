@@ -1,31 +1,52 @@
-const Trello = require("trello");
-const args = process.argv[2];
+'use strict';
 
+/**
+ *
+ * @author Hun Vikran
+ * @version 1.0.0
+ */
 
-const trello = new Trello(
-  "", //first argument: application key 
-  "" //second arguemtn: user token
-); 
-const memberId = ""; //argument: id of member of the board
+require('dotenv').config();
+const Trello = require('trello');
 
-trello.getBoards(memberId, (error, board) => {
-  if (error) {
-    console.log(error);
-  } else {
-    trello.getCardsOnBoard(board[0].id, (error, cards) => {
-      if (error) {
-        console.log(error);
-      } else {
-        let resLabels=[];
-        cards.forEach(card=>{
-          if(card.url==args) {
-            card.labels.forEach(label=>{
-              resLabels.push(label.name);
-            });
-          }
-        });
-        console.log(resLabels);
-      }
-    });
-  }
-});
+const BOARD_ID = process.argv[2];
+const CARD_ID = process.argv[3];
+
+const trello = new Trello(process.env.APPLICATION_KEY, process.env.USER_TOKEN);
+trello
+  .getBoards(process.env.MEMBER_ID)
+  .then(boards => {
+    const BOARD = boards.filter(board => {
+      return board.shortLink === BOARD_ID;
+    })[0];
+
+    if (!BOARD) {
+      console.log("board isn't found.");
+      return;
+    }
+
+    trello
+      .getCardsOnBoard(BOARD.id)
+      .then(cards => {
+        const CARD = cards.filter(card => {
+          return card.shortLink === CARD_ID;
+        })[0];
+
+        if (!CARD) {
+          console.log("card isn't found.");
+          return;
+        }
+
+        console.log(
+          CARD.labels.map(label => {
+            return label.name;
+          })
+        );
+      })
+      .catch(getCardsErr => {
+        console.log('getCardsErr', getCardsErr);
+      });
+  })
+  .catch(getBoardsErr => {
+    console.error('getBoardsErr', getBoardsErr);
+  });
