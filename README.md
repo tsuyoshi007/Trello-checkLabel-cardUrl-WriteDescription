@@ -41,7 +41,7 @@ For Example:
     
 ### Show Card Url Based On Label
     
-    node ./show_card_url.js free
+    node ./show_card_url.js ${board_id} free
     
 ### Write Description
     
