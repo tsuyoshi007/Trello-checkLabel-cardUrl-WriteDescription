@@ -24,20 +24,11 @@ Board_ID was underlined
 ![card_id](https://user-images.githubusercontent.com/45678324/59160763-dcf95000-8b03-11e9-9861-6fbec55bee20.png)
 Card_ID was underlined
 
-### Installing
-
-Installing Trello
+### Installation
 
 ```bash
-npm install trello
+npm install
 ```
-
-Installing dotEnv
-
-```bash
-npm install dotenv
-```
-
 
 ## Running the tests
 
