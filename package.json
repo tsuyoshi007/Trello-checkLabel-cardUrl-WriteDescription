@@ -1,0 +1,24 @@
+{
+  "name": "Trello-System",
+  "version": "1.0.0",
+  "description": "This is local Trello-System using NodeJS.",
+  "main": "check_label.js",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "request": "^2.88.0",
+    "semistandard": "^13.0.1",
+    "trello": "^0.9.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsuyoshi007/Trello-System.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsuyoshi007/Trello-System/issues"
+  },
+  "homepage": "https://github.com/tsuyoshi007/Trello-System#readme"
+}
